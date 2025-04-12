@@ -10,7 +10,8 @@ interface Skill {
   name: string;
   icon: JSX.Element;
   level: number;
-  color: string;
+  textColor?: string;
+  bgColor?: string;
 }
 
 const SkillCard = ({ skill }: { skill: Skill }) => {
@@ -25,19 +26,21 @@ const SkillCard = ({ skill }: { skill: Skill }) => {
     >
       <div className="flex justify-between items-center mb-4">
         <div className="flex items-center gap-3">
-          <div className={`text-2xl ${skill.color}`}>
+          <div className={`text-2xl ${skill.textColor}`}>
             {skill.icon}
           </div>
-          <h3 className="text-lg font-semibold">{skill.name}</h3>
+          <h3 className="text-lg text-gray-300 font-semibold">{skill.name}</h3>
         </div>
         <span className="text-sm font-medium text-slate-500 dark:text-slate-400">
           {skill.level}%
         </span>
       </div>
       
+      {/* Progress bar container */}
       <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2.5">
+        {/* Colored progress bar that fills according to skill level */}
         <motion.div 
-          className={`h-2.5 rounded-full ${skill.color.replace('text-', 'bg-')}`}
+          className={`h-2.5 rounded-full ${skill.bgColor}`}
           initial={{ width: 0 }}
           whileInView={{ width: `${skill.level}%` }}
           viewport={{ once: true }}
@@ -50,21 +53,21 @@ const SkillCard = ({ skill }: { skill: Skill }) => {
 
 const Knowledge = () => {
   const frontendSkills: Skill[] = [
-    { name: 'HTML5', icon: <FaHtml5 />, level: 80, color: 'text-orange-500' },
-    { name: 'CSS3', icon: <FaCss3Alt />, level: 75, color: 'text-blue-500' },
-    { name: 'JavaScript', icon: <FaJs />, level: 60, color: 'text-yellow-500' },
-    { name: 'React.js', icon: <FaReact />, level: 65, color: 'text-sky-500' },
-    { name: 'Tailwind CSS', icon: <SiTailwindcss />, level: 70, color: 'text-cyan-500' },
-    { name: 'TypeScript', icon: <SiTypescript />, level: 55, color: 'text-blue-600' },
+    { name: 'HTML5', icon: <FaHtml5 />, level: 80, textColor: 'text-orange-500', bgColor: 'bg-orange-600' },
+    { name: 'CSS3', icon: <FaCss3Alt />, level: 75, textColor: 'text-blue-500', bgColor: 'bg-orange-600' },
+    { name: 'JavaScript', icon: <FaJs />, level: 60, textColor: 'text-yellow-500', bgColor: 'bg-orange-600' },
+    { name: 'React.js', icon: <FaReact />, level: 65, textColor: 'text-sky-500', bgColor: 'bg-orange-600' },
+    { name: 'Tailwind CSS', icon: <SiTailwindcss />, level: 70, textColor: 'text-cyan-500', bgColor: 'bg-orange-600' },
+    { name: 'TypeScript', icon: <SiTypescript />, level: 55, textColor: 'text-blue-600', bgColor: 'bg-orange-600' },
   ];
 
   const backendSkills: Skill[] = [
-    { name: 'Node.js', icon: <FaNodeJs />, level: 60, color: 'text-green-600' },
-    { name: 'Express.js', icon: <SiExpress />, level: 60, color: 'text-gray-600' },
-    { name: 'NestJS', icon: <SiNestjs />, level: 50, color: 'text-red-600' },
-    { name: 'MongoDB', icon: <SiMongodb />, level: 60, color: 'text-green-500' },
-    { name: 'MySQL', icon: <SiMysql />, level: 55, color: 'text-blue-500' },
-    { name: 'Git & GitHub', icon: <FaGitAlt />, level: 60, color: 'text-orange-600' },
+    { name: 'Node.js', icon: <FaNodeJs />, level: 60, textColor: 'text-green-600', bgColor: 'bg-orange-600' },
+    { name: 'Express.js', icon: <SiExpress />, level: 60, textColor: 'text-gray-600', bgColor: 'bg-orange-600' },
+    { name: 'NestJS', icon: <SiNestjs />, level: 50, textColor: 'text-red-600', bgColor: 'bg-orange-600' },
+    { name: 'MongoDB', icon: <SiMongodb />, level: 60, textColor: 'text-green-500', bgColor: 'bg-orange-600' },
+    { name: 'MySQL', icon: <SiMysql />, level: 55, textColor: 'text-blue-500', bgColor: 'bg-orange-600' },
+    { name: 'Git & GitHub', icon: <FaGitAlt />, level: 60, textColor: 'text-orange-600', bgColor: 'bg-orange-600' },
   ];
 
   const additionalSkills = [
@@ -100,7 +103,7 @@ const Knowledge = () => {
             Frontend Development
           </motion.h3>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-gray-300">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {frontendSkills.map((skill, index) => (
               <SkillCard key={index} skill={skill} />
             ))}
@@ -118,7 +121,7 @@ const Knowledge = () => {
             Backend & Tools
           </motion.h3>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-gray-300">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {backendSkills.map((skill, index) => (
               <SkillCard key={index} skill={skill} />
             ))}
@@ -134,17 +137,17 @@ const Knowledge = () => {
           <h3 className="text-2xl font-semibold mb-8 text-center">Additional Skills</h3>
           
           <div className="bg-white dark:bg-slate-800 p-8 rounded-lg shadow-md">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-gray-300">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {additionalSkills.map((skill, index) => (
                 <div 
                   key={index}
                   className="flex items-start gap-3"
                 >
-                  <div className="mt-1 text-primary">
+                  <div className="mt-1 text-orange-600">
                     <FaCode />
                   </div>
                   <div>
-                    <h4 className="font-semibold">{skill.name}</h4>
+                    <h4 className=" text-gray-300 font-semibold">{skill.name}</h4>
                     <p className="text-slate-600 dark:text-slate-400">{skill.value}</p>
                   </div>
                 </div>
