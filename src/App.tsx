@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Home from './components/sections/Home';
 import About from './components/sections/About';
@@ -9,7 +9,13 @@ import Footer from './components/Footer';
 import SocialSidebar from './components/SocialSidebar';
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  // Set dark mode to true by default
+  const [darkMode, setDarkMode] = useState(true);
+
+  // Add effect to set dark mode class when component mounts
+  useEffect(() => {
+    document.documentElement.classList.add('dark');
+  }, []);
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
