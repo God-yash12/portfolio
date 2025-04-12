@@ -47,7 +47,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
                 {project.tags.map((tag, index) => (
                   <span
                     key={index}
-                    className="text-xs px-2 py-1 bg-primary/20 text-primary dark:text-primary-300 rounded"
+                    className="text-xs px-2 py-1 bg-primary/20 text-white rounded"
                   >
                     {tag}
                   </span>
@@ -161,7 +161,7 @@ const Projects = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/God-yash12"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-outline inline-flex items-center gap-2 text-gray-700 dark:text-white border-gray-700 dark:border-white hover:bg-gray-100 dark:hover:bg-gray-800"
