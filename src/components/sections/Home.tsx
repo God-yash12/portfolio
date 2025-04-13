@@ -1,7 +1,7 @@
 import { Link } from "react-scroll";
 import { TypeAnimation } from 'react-type-animation';
 import { motion } from 'framer-motion';
-import { FaArrowRight } from 'react-icons/fa';
+import { FaArrowRight, FaArrowDown  } from 'react-icons/fa';
 import MyImage from "../../assets/me.jpg";
 
 
@@ -37,7 +37,7 @@ const Home = () => {
               />
             </div>
             <div>
-              <p className="text-base md:text-lg space-y-5 mb-8 text-slate-800 dark:text-slate-400">
+              <p className="text-base md:text-lg space-y-5 mb-8">
                 Passionate and detail-oriented Frontend Developer with hands-on experience in
                 React.js, Tailwind CSS, and JavaScript. Building dynamic, responsive, and
                 user-friendly web applications.
@@ -93,7 +93,8 @@ const Home = () => {
         >
           <div className="flex flex-col items-center">
             <div className="text-sm text-slate-500 dark:text-slate-400 mb-2">Scroll Down</div>
-            <div className="w-0.5 h-6 bg-slate-300 dark:bg-slate-700 animate-bounce"></div>
+            <div className="w-0.5 h-6 bg-slate-300 dark:bg-slate-700 animate-bounce"> </div>
+            <div className=" text-slate-300 dark:text-slate-700 animate-bounce"><FaArrowDown /></div>
           </div>
         </motion.div>
       </div>
