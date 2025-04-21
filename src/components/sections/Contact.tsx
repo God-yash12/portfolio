@@ -1,8 +1,57 @@
-import { useState, useRef, FormEvent, ChangeEvent, JSX } from 'react';
+import { useState, useRef, FormEvent, ChangeEvent, JSX, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaPaperPlane } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
 import { BeatLoader } from 'react-spinners';
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
+
+// Import the CanvasLoader component
+const CanvasLoader = () => {
+  return (
+    <div className="flex justify-center items-center h-full">
+      <div className="w-20 h-20 border-2 border-opacity-20 border-blue-500 border-t-blue-500 rounded-full animate-spin"></div>
+    </div>
+  );
+};
+
+// Earth component
+const Earth = () => {
+  const earth = useGLTF("./planet/scene.gltf");
+
+  return (
+    <primitive object={earth.scene} scale={2.5} position-y={0} rotation-y={0} />
+  );
+};
+
+// EarthCanvas component
+const EarthCanvas = () => {
+  return (
+    <Canvas
+      shadows
+      frameloop='demand'
+      dpr={[1, 2]}
+      gl={{ preserveDrawingBuffer: true }}
+      camera={{
+        fov: 45,
+        near: 0.1,
+        far: 200,
+        position: [-4, 3, 6],
+      }}
+    >
+      <Suspense fallback={<CanvasLoader />}>
+        <OrbitControls
+          autoRotate
+          enableZoom={false}
+          maxPolarAngle={Math.PI / 2}
+          minPolarAngle={Math.PI / 2}
+        />
+        <Earth />
+        <Preload all />
+      </Suspense>
+    </Canvas>
+  );
+};
 
 interface FormData {
   name: string;
@@ -51,14 +100,6 @@ const Contact = () => {
     const serviceId = 'service_9mkuwbr';
     const templateId = 'template_h7t4geh';
     const publicKey = 'WvTca2_Igoe3uLlbN';
-    
-    // Prepare template parameters
-    // const templateParams = {
-    //   from_name: formData.name,
-    //   from_email: formData.email,
-    //   subject: formData.subject,
-    //   message: formData.message
-    // };
     
     if (formRef.current) {
       emailjs.sendForm(serviceId, templateId, formRef.current, publicKey)
@@ -164,14 +205,15 @@ const Contact = () => {
           ))}
         </div>
         
-        <motion.div 
-          className="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-2 text-gray-200">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Form Section */}
+          <motion.div 
+            className="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
             <div className="p-8 lg:p-12">
               <h3 className="text-2xl font-bold mb-6">Send Me a Message</h3>
               
@@ -260,22 +302,21 @@ const Contact = () => {
                 </button>
               </form>
             </div>
-            
-            <div className="relative h-full min-h-[300px] lg:min-h-full">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.979433140826!2d83.45!3d27.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3996864275d9755f%3A0x2b1e92d89d4bb3ae!2sTilottama%2C%20Nepal!5e0!3m2!1sen!2sus!4v1649679371025!5m2!1sen!2sus" 
-                width="100%" 
-                height="100%" 
-                style={{ border: 0 }} 
-                allowFullScreen 
-                loading="lazy" 
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Map showing Tilottama, Nepal"
-                className="absolute inset-0"
-              ></iframe>
+          </motion.div>
+
+          {/* Earth Canvas Section */}
+          <motion.div
+            className="h-[400px] lg:h-auto rounded-lg overflow-hidden shadow-lg"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+          >
+            <div className="w-full h-full bg-slate-800 relative">
+              <EarthCanvas />
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </div>
   );

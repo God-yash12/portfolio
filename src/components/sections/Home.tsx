@@ -93,8 +93,7 @@ const Home = () => {
         >
           <div className="flex flex-col items-center">
             <div className="text-sm text-slate-500 dark:text-slate-400 mb-2">Scroll Down</div>
-            <div className="w-0.5 h-6 bg-slate-300 dark:bg-slate-700 animate-bounce"> </div>
-            <div className=" text-slate-300 dark:text-slate-700 animate-bounce"><FaArrowDown /></div>
+            <div className=" text-slate-300 text-4xl dark:text-slate-700 animate-bounce"><FaArrowDown /></div>
           </div>
         </motion.div>
       </div>
