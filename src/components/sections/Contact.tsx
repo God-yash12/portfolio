@@ -6,12 +6,19 @@ import { BeatLoader } from 'react-spinners';
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
-// Import the CanvasLoader component
+
 const CanvasLoader = () => {
   return (
-    <div className="flex justify-center items-center h-full">
-      <div className="w-20 h-20 border-2 border-opacity-20 border-blue-500 border-t-blue-500 rounded-full animate-spin"></div>
-    </div>
+    <mesh>
+      <pointLight position={[10, 10, 10]} />
+      <directionalLight position={[-10, -10, -5]} intensity={1} />
+      <group>
+        <mesh>
+          <sphereGeometry args={[1, 16, 16]} />
+          <meshStandardMaterial color="#2196f3" wireframe />
+        </mesh>
+      </group>
+    </mesh>
   );
 };
 
