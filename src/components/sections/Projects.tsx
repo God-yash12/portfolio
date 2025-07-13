@@ -105,7 +105,7 @@ const Projects = () => {
     },
     {
       id: 2,
-      title: "Tech Company Website",
+      title: "AI Solutions Website",
       description: "Modern and responsive website for a tech company with interactive elements and smooth animations.",
       image: AILogo,
       tags: ["React", "TypeScript", "Tailwind CSS"],
@@ -114,11 +114,12 @@ const Projects = () => {
     },
     {
       id: 3,
-      title: "Hotel Website",
+      title: "Kusum Airport Hotel",
       description: "Elegant and user-friendly hotel website with booking functionality and room showcase.",
       image: HotelLogo,
-      tags: ["React", "Tailwind CSS"],
-      github: "https://github.com/God-yash12/kusum_hotel.git"
+      tags: ["React", "TypeScript", "Tailwind CSS", "React Query", "React Hook Form", "Zod"],
+      github: "https://github.com/God-yash12/kusum_hotel.git",
+      demo: process.env.Hotel_WEBSITE_URL || "https://kusumairporthotel-git-main-ganesh-thapas-projects.vercel.app/"
     },
     // Add more projects as needed
   ];
