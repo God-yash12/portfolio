@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import HotelLogo from "../../assets/kusumImage.png";
 import CMSImage from "../../assets/cms.jpeg";
-import AILogo from "../../assets/ai-logo.jpeg"
+import AILogo from "../../assets/AI.png"
 
 interface Project {
   id: number;
