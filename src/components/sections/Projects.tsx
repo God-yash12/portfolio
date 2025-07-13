@@ -108,9 +108,9 @@ const Projects = () => {
       title: "AI Solutions Website",
       description: "Modern and responsive website for a tech company with interactive elements and smooth animations.",
       image: AILogo,
-      tags: ["React", "TypeScript", "Tailwind CSS"],
+      tags: ["React", "TypeScript", "Tailwind CSS", "React-hook-form", "zod", "Next.js"],
       github: "https://github.com/God-yash12/AI_Solutions-.git",
-      demo: "https://tech-website.example.com"
+      demo: "https://ai-solutions-git-main-ganesh-thapas-projects.vercel.app/"
     },
     {
       id: 3,
