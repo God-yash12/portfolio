@@ -118,10 +118,9 @@ const Projects = () => {
       description: "Elegant and user-friendly hotel website with booking functionality and room showcase.",
       image: HotelLogo,
       tags: ["React", "TypeScript", "Tailwind CSS", "React Query", "React Hook Form", "Zod"],
-      github: "https://github.com/God-yash12/kusum_hotel.git",
+      github: "https://github.com/God-yash12/hotel_kusum_airport.git",
       demo: process.env.Hotel_WEBSITE_URL || "https://kusumairporthotel-git-main-ganesh-thapas-projects.vercel.app/"
     },
-    // Add more projects as needed
   ];
 
   return (
