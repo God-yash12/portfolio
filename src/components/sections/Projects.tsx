@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
-import HotelLogo from "../../assets/hotel.png";
+import HotelLogo from "../../assets/kusumImage.png";
 import CMSImage from "../../assets/cms.jpeg";
 import AILogo from "../../assets/ai-logo.jpeg"
 
