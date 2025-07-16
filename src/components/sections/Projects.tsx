@@ -119,7 +119,7 @@ const Projects = () => {
       image: HotelLogo,
       tags: ["React", "TypeScript", "Tailwind CSS", "React Query", "React Hook Form", "Zod"],
       github: "https://github.com/God-yash12/hotel_kusum_airport.git",
-      demo: process.env.Hotel_WEBSITE_URL || "https://kusumairporthotel-git-main-ganesh-thapas-projects.vercel.app/"
+      demo: import.meta.env.VITE_HOTEL_WEBSITE_URL || "https://kusumairporthotel-git-main-ganesh-thapas-projects.vercel.app/"
     },
   ];
 

@@ -50,18 +50,13 @@ const About = () => {
 
             <div className="text-base md:text-lg space-y-5 mb-8 ">
               <p className=''>
-                I'm a passionate frontend developer with a strong focus on creating intuitive and
-                visually appealing user interfaces. With hands-on experience in React.js, Tailwind CSS,
-                and JavaScript, I enjoy turning complex problems into simple, beautiful, and intuitive
-                designs.
+                I'm a passionate frontend developer with a strong focus on creating intuitive and visually appealing user interfaces. With hands-on experience in React.js, Tailwind CSS, and JavaScript, I enjoy turning complex problems into simple, elegant, and responsive designs.
               </p>
 
               <p className='text-base md:text-lg space-y-5 mb-8'>
-                Currently in my third year of BSc.IT at ISMT College, I'm constantly learning and
-                improving my skills. I have experience working with modern frontend technologies and
-                basic knowledge of backend development, making me a versatile developer ready to take
-                on exciting challenges.
+                I recently completed my Bachelor’s degree in BSc.IT from ISMT College, and I'm continuously expanding my skill set in both frontend and backend technologies. My experience with modern tools like React, TypeScript, and state management libraries, along with foundational backend knowledge, makes me a versatile developer ready to tackle real-world projects and innovative challenges.
               </p>
+
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
@@ -81,7 +76,7 @@ const About = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold">Education</h4>
-                  <p>BSc.IT (3rd year)</p>
+                  <p>BSc.IT (ISMT College)</p>
                 </div>
               </div>
 
@@ -91,7 +86,7 @@ const About = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold">Experience</h4>
-                  <p>Frontend Developer Intern</p>
+                  <p>Frontend Development Intern</p>
                 </div>
               </div>
 
@@ -101,7 +96,7 @@ const About = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold">Languages</h4>
-                  <p>Nepali, English, Hindi, French (Basic)</p>
+                  <p>Nepali, English, Hindi</p>
                 </div>
               </div>
             </div>
